@@ -1,4 +1,4 @@
-# rcg-galleria
+# rc-gallery-galleria
 
 Plugin rc-gallery for Galleria.
 
@@ -9,7 +9,7 @@ Basic usage
 Install bower package:
 
 ```bash
-bower install --save rcg-galleria
+bower install --save rc-gallery-galleria
 ```
 
 
