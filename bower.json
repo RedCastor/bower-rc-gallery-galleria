@@ -1,0 +1,32 @@
+{
+  "name": "rcg-galleria",
+  "version": "1.0.0",
+  "homepage": "https://redcastor.io",
+  "authors": [
+    "Auban le Grelle"
+  ],
+  "description": "rc-gallery plugin for Galleria",
+  "keywords": [
+    "angular",
+    "redcastor",
+    "angularjs",
+    "directive",
+    "rc-gallery",
+    "galleria",
+    "gallery"
+  ],
+  "main": [
+    "dist/rcg-galleria.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "**/*.txt",
+    ".jscsrc",
+    ".jshintrc",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+	"rc-gallery": "1.0.0"
+  }
+}
