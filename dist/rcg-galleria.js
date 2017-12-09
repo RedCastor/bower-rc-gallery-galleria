@@ -26,7 +26,7 @@
             };
         } ];
     } ]);
-    module.directive("rcgGalleria", [ "$log", "$interval", "rcGalleryGalleria", function($log, $interval, rcGalleryGalleria) {
+    module.directive("rcgGalleria", [ "$interval", "rcGalleryGalleria", function($interval, rcGalleryGalleria) {
         return {
             restrict: "EA",
             require: "^rc-gallery",
@@ -49,18 +49,12 @@
                                         theme: rcGalleryApi.theme
                                     });
                                 }
-                                var width = parseInt(rcGalleryApi.width, 10);
-                                if (!isNaN(width)) {
-                                    angular.extend(rcGalleryApi.options, {
-                                        width: width
-                                    });
-                                }
-                                var height = parseInt(rcGalleryApi.height, 10);
-                                if (!isNaN(height)) {
-                                    angular.extend(rcGalleryApi.options, {
-                                        height: height
-                                    });
-                                }
+                                angular.extend(rcGalleryApi.options, {
+                                    width: rcGalleryApi.width
+                                });
+                                angular.extend(rcGalleryApi.options, {
+                                    height: rcGalleryApi.height
+                                });
                                 var options = angular.extend({}, rcGalleryApi.options, {
                                     extend: function() {
                                         galleriaApi = this;
@@ -69,7 +63,6 @@
                                 angular.forEach(rcGalleryGalleria.getThemeUrls(), function(url) {
                                     Galleria.loadTheme(url);
                                 });
-                                $log.debug(options);
                                 Galleria.run(rcGalleryApi.mediaGalleryElement, options);
                                 rcGalleryApi.setMediaReady();
                             } else if (n_interval >= 240) {
