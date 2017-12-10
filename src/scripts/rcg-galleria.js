@@ -74,9 +74,16 @@
                                     angular.extend(rcGalleryApi.options, {theme: rcGalleryApi.theme});
                                 }
 
-                                //Extend with Size width and height.
-                                angular.extend(rcGalleryApi.options, {width: rcGalleryApi.width});
-                                angular.extend(rcGalleryApi.options, {height: rcGalleryApi.height});
+                                //Extend with width.
+                                if (rcGalleryApi.width) {
+                                    angular.extend(rcGalleryApi.options, {width: rcGalleryApi.width});
+                                }
+
+                                //Extend with height.
+                                var height = parseFloat(rcGalleryApi.height);
+                                if ( !isNaN(height) ) {
+                                    angular.extend(rcGalleryApi.options, {height: height});
+                                }
 
                                 var options = angular.extend({}, rcGalleryApi.options, {extend: function () {galleriaApi = this;}});
 

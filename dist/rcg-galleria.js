@@ -49,12 +49,17 @@
                                         theme: rcGalleryApi.theme
                                     });
                                 }
-                                angular.extend(rcGalleryApi.options, {
-                                    width: rcGalleryApi.width
-                                });
-                                angular.extend(rcGalleryApi.options, {
-                                    height: rcGalleryApi.height
-                                });
+                                if (rcGalleryApi.width) {
+                                    angular.extend(rcGalleryApi.options, {
+                                        width: rcGalleryApi.width
+                                    });
+                                }
+                                var height = parseFloat(rcGalleryApi.height);
+                                if (!isNaN(height)) {
+                                    angular.extend(rcGalleryApi.options, {
+                                        height: height
+                                    });
+                                }
                                 var options = angular.extend({}, rcGalleryApi.options, {
                                     extend: function() {
                                         galleriaApi = this;
