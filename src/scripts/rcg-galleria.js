@@ -76,13 +76,31 @@
 
                                 //Extend with width.
                                 if (rcGalleryApi.width) {
-                                    angular.extend(rcGalleryApi.options, {width: rcGalleryApi.width});
+                                    var width_unit = rcGalleryApi.width.substr(rcGalleryApi.width.length - 2);
+                                    var width = parseFloat(rcGalleryApi.width.substr(0, width_unit.length + 1));
+
+                                    if (width_unit === 'vw') {
+                                        width = rcGalleryApi.vwTOpx( parseFloat(width, 10) );
+                                    }
+
+                                    if ( !isNaN(width) ) {
+                                        angular.extend(rcGalleryApi.options, {width: width});
+                                    }
                                 }
 
+
                                 //Extend with height.
-                                var height = parseFloat(rcGalleryApi.height);
-                                if ( !isNaN(height) ) {
-                                    angular.extend(rcGalleryApi.options, {height: height});
+                                if (rcGalleryApi.height) {
+                                    var height_unit = rcGalleryApi.height.substr(rcGalleryApi.height.length - 2);
+                                    var height = parseFloat(rcGalleryApi.height.substr(0, height_unit.length + 1));
+
+                                    if (height_unit === 'vh') {
+                                        height = rcGalleryApi.vhTOpx( height );
+                                    }
+
+                                    if ( !isNaN(height) ) {
+                                        angular.extend(rcGalleryApi.options, {height: height});
+                                    }
                                 }
 
                                 var options = angular.extend({}, rcGalleryApi.options, {extend: function () {galleriaApi = this;}});
